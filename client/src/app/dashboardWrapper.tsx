@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
-import Navbar from "./(components)/Navbar/page";
-import Sidebar from "./(components)/Sidebar/page";
+import Navbar from "./(components)/Navbar";
+import Sidebar from "./(components)/Sidebar";
 import StoreProvider, { useAppSelector } from "./redux";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
@@ -14,7 +14,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove("light ");
+      document.documentElement.classList.add("light");
     }
   });
 
