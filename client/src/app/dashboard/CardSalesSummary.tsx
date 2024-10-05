@@ -74,7 +74,7 @@ const CardSalesSummary = () => {
                 </span>
               </div>
               <select
-                className="shadow-sm border border-gray-300 bg-white p-2 rounded text-black"
+                className="shadow-sm border border-gray-300 bg-white p-2 rounded"
                 value={timeframe}
                 onChange={(e) => {
                   setTimeframe(e.target.value);
@@ -85,6 +85,7 @@ const CardSalesSummary = () => {
                 <option value="monthly">Monthly</option>
               </select>
             </div>
+
             {/* CHART */}
             <ResponsiveContainer width="100%" height={300} className="px-7">
               <BarChart
