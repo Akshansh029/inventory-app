@@ -24,12 +24,12 @@ export interface PurchaseSummary {
 
 export interface ExpenseSummary {
   expenseSummaryId: string;
-  totalExpense: number;
+  totalExpenses: number;
   date: string;
 }
 
-export interface ExpenseByCategory {
-  expenseByCategoryId: string;
+export interface ExpenseByCategorySummary {
+  expenseByCategorySummaryId: string;
   category: string;
   amount: number;
   date: string;
@@ -40,7 +40,7 @@ export interface DashboardMetrics {
   salesSummary: SalesSummary[];
   purchaseSummary: PurchaseSummary[];
   expenseSummary: ExpenseSummary[];
-  expenseByCategorySummary: ExpenseByCategory[];
+  expenseByCategorySummary: ExpenseByCategorySummary[];
 }
 
 export const api = createApi({

@@ -12,7 +12,7 @@ const Rating = ({ rating }: RatingProps) => {
         <Star
           key={i}
           color={i <= rating ? "#FFC107" : "#E4E5E9"}
-          className="w-4 h-4 bg-black"
+          className="w-4 h-4 bg-transparent"
         />
       ))}
     </div>

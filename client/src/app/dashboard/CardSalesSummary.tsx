@@ -48,7 +48,6 @@ const CardSalesSummary = () => {
         <div className="m-5">Loading...</div>
       ) : (
         <>
-          {/* HEADER */}
           <div>
             <h2 className="text-lg font-semibold mb-2 px-7 pt-5">
               Sales Summary

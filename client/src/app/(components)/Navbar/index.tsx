@@ -19,7 +19,6 @@ const Navbar = () => {
 
   const toggleDarkMode = () => {
     dispatch(setIsDarkMode(!isDarkMode));
-    console.log("Dark mode toggled");
   };
 
   return (
