@@ -17,7 +17,7 @@ export interface SalesSummary {
 
 export interface PurchaseSummary {
   purchaseSummaryId: string;
-  totalPurchase: number;
+  totalPurchased: number;
   changePercentage?: number;
   date: string;
 }
