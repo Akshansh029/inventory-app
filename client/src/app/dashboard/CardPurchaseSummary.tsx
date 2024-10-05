@@ -65,7 +65,7 @@ const CardPurchaseSummary = () => {
             {/* CHARTS */}
             <ResponsiveContainer
               width="100%"
-              height={200}
+              height={170}
               className="p-2 xl:pb-8"
             >
               <AreaChart

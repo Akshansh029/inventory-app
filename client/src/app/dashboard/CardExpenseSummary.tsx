@@ -70,7 +70,7 @@ const CardExpenseSummary = () => {
           <div className="xl:flex justify-between pr-7">
             <div className="relative basis-3/5">
               {/* CHART */}
-              <ResponsiveContainer width="100%" height={140}>
+              <ResponsiveContainer width="100%" height={130}>
                 <PieChart>
                   <Pie
                     data={expenseCategories}

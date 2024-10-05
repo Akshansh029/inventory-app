@@ -30,3 +30,25 @@ app {
     grid-template-rows: repeat(8, 7.5vh);
   }
 }
+
+/* Scrollbar container */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track or background */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle or thumb */
+::-webkit-scrollbar-thumb {
+  background: #bebebe;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #a9a9a9; /* Darker shade on hover */
+}
