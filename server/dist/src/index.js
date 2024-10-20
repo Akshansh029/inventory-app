@@ -12,6 +12,7 @@ const morgan_1 = __importDefault(require("morgan"));
 // ROUTE IMPORTS
 const dashaboardRoutes_1 = __importDefault(require("./routes/dashaboardRoutes"));
 const productRoutes_1 = __importDefault(require("./routes/productRoutes"));
+const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
 // CONFIGURATIONS
 dotenv_1.default.config();
 const app = (0, express_1.default)();
@@ -25,6 +26,7 @@ app.use((0, cors_1.default)());
 // ROUTES
 app.use("/dashboard", dashaboardRoutes_1.default);
 app.use("/products", productRoutes_1.default);
+app.use("/users", userRoutes_1.default);
 // SERVER
 const port = process.env.port || 3001;
 app.listen(port, () => console.log(`Server running on port ${port}`));
