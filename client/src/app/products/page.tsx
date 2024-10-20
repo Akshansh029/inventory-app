@@ -1,10 +1,15 @@
 "use client";
-import { useCreateProductMutation, useGetProductsQuery } from "@/state/api";
+import {
+  NewProduct,
+  useCreateProductMutation,
+  useGetProductsQuery,
+} from "@/state/api";
 import { PlusCircleIcon, SearchIcon } from "lucide-react";
 import { useState } from "react";
 import Header from "../(components)/Header";
 import Rating from "../(components)/Rating";
 import CreateProductModal from "./CreateProductModal";
+import { v4 } from "uuid";
 
 type ProductFormData = {
   name: string;
@@ -25,7 +30,11 @@ const Products = () => {
 
   const [createProduct] = useCreateProductMutation();
   const handleCreateProduct = async (productData: ProductFormData) => {
-    await createProduct(productData);
+    const newProduct: NewProduct = {
+      productId: v4(),
+      ...productData,
+    };
+    await createProduct(newProduct);
   };
 
   if (isLoading) {
