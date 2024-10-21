@@ -6,7 +6,6 @@ import CardExpenseSummary from "./CardExpenseSummary";
 import StatCard from "./StatCard";
 import {
   CheckCircle,
-  LucideIceCreamCone,
   Package,
   Tag,
   TrendingDown,

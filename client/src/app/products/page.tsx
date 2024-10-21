@@ -4,12 +4,13 @@ import {
   useCreateProductMutation,
   useGetProductsQuery,
 } from "@/state/api";
-import { PlusCircleIcon, SearchIcon } from "lucide-react";
+import { Car, Frown, PlusCircleIcon, SearchIcon } from "lucide-react";
 import { useState } from "react";
 import Header from "../(components)/Header";
 import Rating from "../(components)/Rating";
 import CreateProductModal from "./CreateProductModal";
 import { v4 } from "uuid";
+import { FadeLoader } from "react-spinners";
 
 type ProductFormData = {
   name: string;
@@ -38,13 +39,20 @@ const Products = () => {
   };
 
   if (isLoading) {
-    return <div className="py-4">Loading...</div>;
+    return (
+      <div className="min-h-screen w-full flex items-center justify-center">
+        <FadeLoader className="mb-40" color="#96989a" />
+      </div>
+    );
   }
 
   if (isError || !response) {
     return (
-      <div className="text-center text-red-500 py-4">
-        Failed to fetch products
+      <div className="min-h-screen w-full flex flex-col gap-4 items-center justify-center">
+        <Frown className="text-gray-600 " size={60} />
+        <p className="text-2xl font-bold text-gray-600 mb-40">
+          Failed to fetch products
+        </p>
       </div>
     );
   }

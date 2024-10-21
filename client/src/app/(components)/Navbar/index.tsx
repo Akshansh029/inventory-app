@@ -31,11 +31,11 @@ const Navbar = () => {
         >
           <Menu className="w-4 h-4" />
         </button>
-        <div className="relative">
+        <div className="relative border-2 border-gray-300 rounded-lg">
           <input
             type="search"
             placeholder="Start to type to search groups & products"
-            className="pl-10 pr-4 py-2 w-50 md:w-60 border-gray-300 bg-white rounded-lg focus:outline-none focus:border-blue-500"
+            className="pl-10 pr-4 py-2 w-50 md:w-60 border-gray-300 bg-white rounded-lg focus:outline-none focus:border-blue-500 ml-1"
           />
 
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
