@@ -23,9 +23,6 @@ const Navbar = () => {
 
   const isNotification = useAppSelector((state) => state.global);
 
-  console.log(isDarkMode);
-  console.log(isNotification);
-
   return (
     <div className={`flex justify-between items-center w-full mb-7`}>
       {/* LEFT SIDE */}
