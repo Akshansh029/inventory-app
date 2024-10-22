@@ -21,7 +21,8 @@ const Navbar = () => {
     dispatch(setIsDarkMode(!isDarkMode));
   };
 
-  const isNotification = useAppSelector((state) => state.global);
+  const isNotification = useAppSelector((state) => state.global.isNotification);
+  console.log(isNotification);
 
   return (
     <div className={`flex justify-between items-center w-full mb-7`}>
@@ -68,8 +69,10 @@ const Navbar = () => {
           </div>
           <hr className="w-0 h-7 border border-solid border-l border-gray-300 mx-3" />
           <div className="flex items-center gap-3 cursor-pointer">
-            <div className="w-9 h-9">image</div>
-            <span className="font-semibold">Akshansh</span>
+            <div className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center ring-2 ring-indigo-500">
+              <p className="font-semibold text-base">AD</p>
+            </div>
+            <span className="font-semibold">Admin</span>
           </div>
         </div>
         <Link href="/settings">

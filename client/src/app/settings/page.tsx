@@ -3,7 +3,7 @@ import { useState } from "react";
 import Header from "../(components)/Header";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../redux";
-import { setIsDarkMode } from "@/state";
+import { setIsDarkMode, setIsNotification } from "@/state"; // Import setIsNotification
 
 type UserSetting = {
   label: string;
@@ -23,9 +23,14 @@ const Settings = () => {
   const dispatch = useDispatch();
 
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
+  const isNotification = useAppSelector((state) => state.global.isNotification);
 
   const toggleDarkMode = () => {
     dispatch(setIsDarkMode(!isDarkMode));
+  };
+
+  const toggleIsNotification = () => {
+    dispatch(setIsNotification(!isNotification));
   };
 
   const handleToggleChange = (index: number) => {
@@ -35,6 +40,9 @@ const Settings = () => {
     if (setting.label === "Dark Mode" && setting.type === "toggle") {
       toggleDarkMode();
       setting.value = !isDarkMode;
+    } else if (setting.label === "Notification" && setting.type === "toggle") {
+      toggleIsNotification();
+      setting.value = !isNotification;
     } else {
       setting.value = !setting.value as boolean;
     }

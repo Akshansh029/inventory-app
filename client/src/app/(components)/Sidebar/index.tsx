@@ -79,7 +79,7 @@ const Sidebar = () => {
           isSidebarCollapsed ? "px-5" : "px-8"
         }`}
       >
-        <div className="">Logo</div>
+        <img src="/logo.svg" alt="Logo.svg" width={28} height={28} />
         <h1
           className={`${
             isSidebarCollapsed ? "hidden" : "block"
