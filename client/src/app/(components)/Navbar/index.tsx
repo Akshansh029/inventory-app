@@ -2,6 +2,7 @@
 import { useAppSelector } from "@/app/redux";
 import { setIsDarkMode, setIsSidebarCollapsed } from "@/state";
 import { Bell, Menu, Moon, Settings, Sun } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { useDispatch } from "react-redux";
@@ -68,19 +69,13 @@ const Navbar = () => {
           </div>
           <hr className="w-0 h-7 border border-solid border-l border-gray-300 mx-3" />
           <div className="flex items-center gap-3 cursor-pointer">
-            <div
-              className={`w-10 h-10 rounded-full flex items-center justify-center ring-2 ring-indigo-500 ${
-                isDarkMode ? "bg-transparent" : "bg-slate-200"
-              }`}
-            >
-              <p
-                className={`font-semibold text-base ${
-                  isDarkMode ? "text-black" : ""
-                }`}
-              >
-                AD
-              </p>
-            </div>
+            <Image
+              src="https://s3-storage-inventorymanagement.s3.ap-south-1.amazonaws.com/logo.png"
+              alt="Profile.png"
+              width={50}
+              height={50}
+              className="rounded-full object-cover"
+            />
             <span className="font-semibold">Admin</span>
           </div>
         </div>
