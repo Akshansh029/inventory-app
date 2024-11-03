@@ -3,8 +3,6 @@
 import { useGetProductsQuery } from "@/state/api";
 import Header from "@/app/(components)/Header";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import { FadeLoader } from "react-spinners";
-import { Frown } from "lucide-react";
 
 const columns: GridColDef[] = [
   { field: "productId", headerName: "ID", width: 90 },
@@ -33,24 +31,17 @@ const columns: GridColDef[] = [
 
 const Inventory = () => {
   const { data: products, isError, isLoading } = useGetProductsQuery();
-  //   console.log(products.products);
-  const rows = products?.products || products || [];
+
+  console.log(products);
 
   if (isLoading) {
-    return (
-      <div className="min-h-screen w-full flex items-center justify-center">
-        <FadeLoader className="mb-40" color="#96989a" />
-      </div>
-    );
+    return <div className="py-4">Loading...</div>;
   }
 
-  if (isError) {
+  if (isError || !products) {
     return (
-      <div className="min-h-screen w-full flex flex-col gap-4 items-center justify-center">
-        <Frown className="text-gray-600 " size={60} />
-        <p className="text-2xl font-bold text-gray-600 mb-40">
-          Failed to fetch products
-        </p>
+      <div className="text-center text-red-500 py-4">
+        Failed to fetch products
       </div>
     );
   }
@@ -59,7 +50,7 @@ const Inventory = () => {
     <div className="flex flex-col">
       <Header name="Inventory" />
       <DataGrid
-        rows={rows}
+        rows={products}
         columns={columns}
         getRowId={(row) => row.productId}
         checkboxSelection
