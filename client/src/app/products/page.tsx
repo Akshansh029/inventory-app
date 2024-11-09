@@ -46,6 +46,9 @@ const Products = () => {
     );
   }
 
+  console.log(typeof products);
+  console.log(products);
+
   return (
     <div className="mx-auto pb-5 w-full">
       {/* SEARCH BAR */}
@@ -82,7 +85,9 @@ const Products = () => {
           >
             <div className="flex flex-col items-center">
               <Image
-                src="https://s3-storage-inventorymanagement.s3.ap-south-1.amazonaws.com/logo.png"
+                src={`https://s3-storage-inventorymanagement.s3.ap-south-1.amazonaws.com/product${
+                  Math.floor(Math.random() * 3) + 1
+                }.png`}
                 alt="Profile.png"
                 width={150}
                 height={150}
