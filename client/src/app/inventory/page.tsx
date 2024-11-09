@@ -1,6 +1,6 @@
 "use client";
 
-import { useGetProductsQuery } from "@/state/api";
+import { useGetDashboardMetricsQuery, useGetProductsQuery } from "@/state/api";
 import Header from "@/app/(components)/Header";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 
@@ -30,13 +30,17 @@ const columns: GridColDef[] = [
 ];
 
 const Inventory = () => {
-  const { data: products, isError, isLoading } = useGetProductsQuery();
+  const {
+    data: dashboardMetrics,
+    isLoading,
+    isError,
+  } = useGetDashboardMetricsQuery();
 
   if (isLoading) {
     return <div className="py-4">Loading...</div>;
   }
 
-  if (isError || !products) {
+  if (isError || !dashboardMetrics?.popularProducts) {
     return (
       <div className="text-center text-red-500 py-4">
         Failed to fetch products
@@ -48,7 +52,7 @@ const Inventory = () => {
     <div className="flex flex-col">
       <Header name="Inventory" />
       <DataGrid
-        rows={products}
+        rows={dashboardMetrics?.popularProducts}
         columns={columns}
         getRowId={(row) => row.productId}
         checkboxSelection
