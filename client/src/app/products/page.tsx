@@ -1,6 +1,10 @@
 "use client";
 
-import { useCreateProductMutation, useGetProductsQuery } from "@/state/api";
+import {
+  useCreateProductMutation,
+  useGetDashboardMetricsQuery,
+  useGetProductsQuery,
+} from "@/state/api";
 import { PlusCircleIcon, SearchIcon } from "lucide-react";
 import { useState } from "react";
 import Header from "@/app/(components)/Header";
@@ -19,11 +23,8 @@ const Products = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const {
-    data: products,
-    isLoading,
-    isError,
-  } = useGetProductsQuery(searchTerm);
+  const { data: products, isError } = useGetProductsQuery(searchTerm);
+  const { data: dashboardMetrics, isLoading } = useGetDashboardMetricsQuery();
 
   const [createProduct] = useCreateProductMutation();
   const handleCreateProduct = async (productData: ProductFormData) => {
@@ -45,9 +46,6 @@ const Products = () => {
       </div>
     );
   }
-
-  console.log(typeof products);
-  console.log(products);
 
   return (
     <div className="mx-auto pb-5 w-full">
@@ -78,7 +76,7 @@ const Products = () => {
 
       {/* BODY PRODUCTS LIST */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-between">
-        {products.map((product) => (
+        {dashboardMetrics?.popularProducts.map((product) => (
           <div
             key={product.productId}
             className="border shadow rounded-md p-4 max-w-full w-full mx-auto"
