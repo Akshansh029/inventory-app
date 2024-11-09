@@ -38,7 +38,7 @@ export const createProduct = async (
         rating,
       },
     });
-    res.status(201).json({ product });
+    res.status(201).json(product);
   } catch (error) {
     res.status(500).json({ message: "Error creating product" });
   }
